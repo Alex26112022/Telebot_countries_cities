@@ -51,12 +51,14 @@ for el in cities_countries[1:]:
         official_language = country_details[8].text
         valuta = country_details[9].text
         phone_code = country_details[10].text
+        image = f'http://ostranah.ru/{detail_soup.find_all('img')[1]['src']}'
     except IndexError:
         area = country_details[4].contents[1].strip()
         people = country_details[5].contents[1].strip()
         official_language = country_details[9].text
         valuta = country_details[10].text
         phone_code = country_details[11].text
+        image = f'http://ostranah.ru/{detail_soup.find_all('img')[1]['src']}'
 
     print(
-        f'{countries}: {cities}\nArea: {area}\nPopulation: {people}\nOfficial language: {official_language}\nValuta: {valuta}\nPhone code: {phone_code}\n{countries_url}\n')
+        f'{countries}: {cities}\nArea: {area}\nPopulation: {people}\nOfficial language: {official_language}\nValuta: {valuta}\nPhone code: {phone_code}\n{countries_url}\n{image}\n')
