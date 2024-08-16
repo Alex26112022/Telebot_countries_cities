@@ -39,11 +39,10 @@ def dump_db():
             cur = conn.cursor()
 
             cur.executemany(
-                "INSERT INTO capitalize (country, city, area, people, official_language, valuta, phone_code, countries_url, image) VALUES(?,?,?,?,?,?,?,?,?)",
-                info)
+                "INSERT INTO capitalize (country, city, area, people, official_language, valuta, phone_code, countries_url, image) VALUES(?,?,?,?,?,?,?,?,?)", info)  # noqa
             cur.close()
             conn.commit()
-        print(f"БД сформирована!")
+        print("БД сформирована!")
     except sqlite3.Error as e:
         print(e)
 

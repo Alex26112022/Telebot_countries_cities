@@ -1,4 +1,3 @@
-import os
 import requests
 from bs4 import BeautifulSoup
 from fake_headers import Headers
@@ -38,14 +37,14 @@ def parse():
             official_language = country_details[8].text
             valuta = country_details[9].text
             phone_code = country_details[10].text
-            image = f'http://ostranah.ru/{detail_soup.find_all('img')[1]['src']}'
+            image = f'http://ostranah.ru/{detail_soup.find_all('img')[1]['src']}'  # noqa
         except IndexError:
             area = country_details[4].contents[1].strip()
             people = country_details[5].contents[1].strip()
             official_language = country_details[9].text
             valuta = country_details[10].text
             phone_code = country_details[11].text
-            image = f'http://ostranah.ru/{detail_soup.find_all('img')[1]['src']}'
+            image = f'http://ostranah.ru/{detail_soup.find_all('img')[1]['src']}'  # noqa
 
         info = (countries, cities, area, people, official_language,
                 valuta, phone_code, countries_url, image)
